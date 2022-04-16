@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Tag, Modal } from 'antd';
 import { EyeOutlined } from '@ant-design/icons';
-import axios from 'axios'
 const { Meta } = Card;
 
 // SECONDARY COLOR = #607D8B
@@ -27,11 +26,8 @@ const COLOURS_TYPE = {
   fairy: '#D685AD',
 };
 
-export const CardPokemon = ({ name, url }) => {
+export const CardPokemon = ({ id, name, sprite, types }) => {
 
-  const [sprite, setSprite] = useState('')
-  const [types, setTypes] = useState([])
-  const [id, setId] = useState('')
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [loading, setLoading] = useState(false)
 
@@ -48,17 +44,6 @@ export const CardPokemon = ({ name, url }) => {
       </Modal>
     )
   }
-  useEffect(() => {
-    setLoading(true)
-    axios.get(url).then((response) => {
-      // console.log('RESPONSE API', response.data);
-      const { sprites, types, id } = response.data
-      setSprite(sprites.front_default)
-      setTypes(types)
-      setId(id)
-      setLoading(false)
-    });
-  }, [])
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -75,6 +60,7 @@ export const CardPokemon = ({ name, url }) => {
   return (
     <Card
       style={{ width: 300 }}
+      className="shadow-card"
       cover={
         <div className='background-card' style={{ display: 'flex', justifyContent: 'center' }}>
           <div className='background-avatar-pokemon'>

@@ -20,7 +20,15 @@ code {
   border-radius: 100%;
   margin-top: .9rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.shadow-card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
+.sticky-search-bar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .ant-input-affix-wrapper-lg {
   border-radius: 150px !important;
