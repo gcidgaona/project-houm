@@ -1,10 +1,12 @@
+import { useEffect } from 'react';
+import { Pokedex } from './Pokedex/Pokedex';
 
 function App() {
-  return (
-    <div className="App">
-      <h1>HOUM</h1>
-    </div>
-  );
+  useEffect(() => {
+    document. title = "PokeHoum"
+  }, [])
+  
+  return (<Pokedex />);
 }
 
 export default App;

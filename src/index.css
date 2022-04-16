@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.background-card {
+  background: linear-gradient(rgba(255,69,43,1) 70%,  white 30%);
+}
+.background-avatar-pokemon {
+  background-color: white;
+  border-radius: 100%;
+  margin-top: .9rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+.ant-input-affix-wrapper-lg {
+  border-radius: 150px !important;
+}
+
+.ant-btn-primary {
+  background-color: #FF452B !important;
+  border-color: #FF452B !important;
+}
+/* .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: 'green' !important
+}
+
+.ant-input-affix-wrapper-focused {
+  border-width: 2px !important;
+  border-color: 'green' !important
+} */
