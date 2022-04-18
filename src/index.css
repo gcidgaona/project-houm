@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+.color-title {
+  color: #263238;
+}
+.color-sub-text {
+  color: #607D8B;
+}
 .background-card {
   background: linear-gradient(rgba(255,69,43,1) 70%,  white 30%);
 }
@@ -38,11 +44,7 @@ code {
   background-color: #FF452B !important;
   border-color: #FF452B !important;
 }
-/* .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
-  border-color: 'green' !important
-}
 
-.ant-input-affix-wrapper-focused {
-  border-width: 2px !important;
-  border-color: 'green' !important
-} */
+.tag-type:hover {
+  cursor: pointer;
+}

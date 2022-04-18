@@ -8,8 +8,8 @@ export const SearchBar = () => {
     const handleSetSearchText = useContext(SearchContext)
 
     return (
-        <div style={{ width: '42rem' }}>
-            <Input size="large" placeholder="Search Pokemon" onChange={e => handleSetSearchText(e.target.value)} prefix={<SearchOutlined />} />
+        <div style={{ width: '50%' }}>
+            <Input size="large" placeholder="Search PokeHoum" onChange={e => handleSetSearchText(e.target.value)} prefix={<SearchOutlined />} />
         </div>
     )
 }
