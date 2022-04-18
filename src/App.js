@@ -4,7 +4,7 @@ import { Pokedex } from './Pokedex/Pokedex';
 
 function App() {
 
-  const [shouldShowPokedex, setShouldShowPokedex] = useState(false)
+  const [shouldShowPokedex, setShouldShowPokedex] = useState(true)
 
   useEffect(() => {
     document. title = "PokeHoum"
