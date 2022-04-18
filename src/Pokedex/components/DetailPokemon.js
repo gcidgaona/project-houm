@@ -9,7 +9,7 @@ const InfoWithLoading = WithLoading(InfoModal);
 
 export const DetailPokemon = (({ isOpen, handleCancel,  handleOk}) => {
 
-  const {name, sprite, data} = useContext(PokemonContext)
+  const {data} = useContext(PokemonContext)
 
   const [detail, setDetail] = useState({})
   const [textDetail, setTextDetail] = useState('')

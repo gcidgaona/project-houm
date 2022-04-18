@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useMemo } from 'react'
-import { Space, Tag, Popover, Button } from 'antd'
+import React, { useEffect, useState, useMemo, useCallback } from 'react'
+import { Space, Tag, Popover } from 'antd'
 import { SearchBar } from './components/SearchBar'
 import { FilterOutlined } from '@ant-design/icons';
 import SearchContext from '../helpers/context/SearchContext'
@@ -57,11 +57,11 @@ export const Pokedex = () => {
         scrollToTop()
     }, [searchText, typesFilter])
 
-    const handleScroll = (e) => {
+    const handleScroll = useCallback((e) => {
         if (window.innerHeight + e.target.documentElement.scrollTop + 1 >= e.target.documentElement.scrollHeight) {
             getInfoPokemons()
         }
-    }
+    }, [getInfoPokemons])
 
     const handleAddTypesFilter = (type) => {
         if (typesFilter.includes(type)) {
@@ -84,8 +84,11 @@ export const Pokedex = () => {
 
     useEffect(() => {
         getPokemons()
+    }, [getPokemons])
+
+    useEffect(() => {
         window.addEventListener("scroll", handleScroll)
-    }, [])
+    }, [handleScroll])
 
 
     return (

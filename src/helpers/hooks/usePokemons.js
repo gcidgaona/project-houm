@@ -1,29 +1,21 @@
-import {useEffect, useState} from 'react'
+import {useCallback, useEffect, useState} from 'react'
 import axios from "axios";
 import { API_URL } from '../../constants/api'
 
-const usePokemons = () => {
+let offset = 0
 
-  let offset = 0
+const usePokemons = () => {
 
   const [pokemons, setPokemons] = useState([])
   const [loadingPokemons, setLoadingPokemons] = useState(false)
 
-
-  
-  const getInfoPokemons = async () =>{
-    let getResultPokemons = await getPokemons()
-    getResultPokemons.map(pokemon => getPokemon(pokemon.url))
-    offset+=10
-  }
-
-  const getPokemons = async () => {
+  const getPokemons = useCallback(async () => {
     setLoadingPokemons(true)
     return await axios.get(`${API_URL}pokemon?limit=10&offset=${offset}`).then((response) => {
         return response.data.results
     });
-  }
-  const getPokemon = (url) => {
+  }, [])
+  const getPokemon = useCallback((url) => {
     axios.get(url).then((response) => {
         const { sprites, types, id, name, ...restData } = response.data
         let infoPokemon = {
@@ -38,7 +30,14 @@ const usePokemons = () => {
         }
     });
     setLoadingPokemons(false)
-  }
+  },[])
+  
+  const getInfoPokemons = useCallback(async () =>{
+    let getResultPokemons = await getPokemons()
+    getResultPokemons.map(pokemon => getPokemon(pokemon.url))
+    offset+=10
+  }, [getPokemon, getPokemons])
+
   
   useEffect(() => {
     getInfoPokemons()
