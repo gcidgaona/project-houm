@@ -7,7 +7,7 @@ function App() {
   const [shouldShowPokedex, setShouldShowPokedex] = useState(false)
 
   useEffect(() => {
-    document. title = "PokeHoum"
+    document.title = "PokeHoum"
     setTimeout(() => {
       setShouldShowPokedex(true)
     }, 3000);
